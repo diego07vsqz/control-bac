@@ -26,15 +26,15 @@
   /* ── Tema claro — el header y la tarjeta visual se mantienen oscuros
      a propósito (identidad de marca), solo cambia el cuerpo del dashboard. */
   [data-theme="light"]{
-    --bg:#f5f3ee; --bg-2:#ffffff; --card:rgba(255,255,255,.7); --card-hover:rgba(255,255,255,.9);
+    --bg:#fbf6f6; --bg-2:#ffffff; --card:rgba(255,255,255,.7); --card-hover:rgba(255,255,255,.9);
     --line:rgba(28,27,24,.1); --line-soft:rgba(28,27,24,.06);
-    --text:#1c1b18; --text-mid:#635d51; --text-dim:#948d7d;
+    --text:#1c1415; --text-mid:#6a5a5c; --text-dim:#998789; --brass:#c4161f; --brass-soft:rgba(196,22,31,.1);
     --shadow-card:0 1px 1px rgba(0,0,0,.03), 0 8px 24px -14px rgba(0,0,0,.12);
     --shadow-hover:0 1px 1px rgba(0,0,0,.04), 0 16px 36px -14px rgba(0,0,0,.18);
   }
   [data-theme="light"] body{
     background:
-      radial-gradient(circle at 15% 0%, rgba(201,162,75,.05), transparent 40%),
+      radial-gradient(circle at 15% 0%, rgba(215,25,32,.07), transparent 40%),
       radial-gradient(circle at 85% 10%, rgba(79,209,174,.04), transparent 35%),
       var(--bg);
   }
@@ -47,9 +47,11 @@
   body{
     position:relative;
     background:
-      repeating-linear-gradient(180deg, rgba(232,51,63,.02) 0 1px, transparent 1px 3px),
+      radial-gradient(ellipse at 100% 100%, rgba(215,25,32,.16), transparent 55%),
+      repeating-linear-gradient(90deg, rgba(232,51,63,.035) 0 1px, transparent 1px 48px),
+      repeating-linear-gradient(180deg, rgba(232,51,63,.035) 0 1px, transparent 1px 48px),
       radial-gradient(circle at 15% 0%, rgba(232,51,63,.08), transparent 40%),
-      radial-gradient(circle at 85% 10%, rgba(155,140,255,.06), transparent 35%),
+      radial-gradient(circle at 85% 10%, rgba(255,255,255,.03), transparent 35%),
       var(--bg);
     color:var(--text); font-family:'Inter',sans-serif; line-height:1.5;
     -webkit-font-smoothing:antialiased; min-height:100vh; padding-bottom:60px;
@@ -158,11 +160,12 @@
     display:flex; align-items:center; justify-content:space-between;
     position:sticky; top:0; z-index:50; background:rgba(11,8,9,.75);
     backdrop-filter:blur(20px) saturate(160%); -webkit-backdrop-filter:blur(20px) saturate(160%);
-    box-shadow:0 1px 12px -2px rgba(232,51,63,.25);
+    box-shadow:0 1px 12px -2px rgba(232,51,63,.25); border-top:3px solid #e1202e;
   }
   .brand{display:flex; align-items:center; gap:14px;}
   .brand-mark{width:38px; height:26px; background:linear-gradient(135deg,var(--brass),#9c1420); position:relative; flex-shrink:0; box-shadow:0 0 14px rgba(232,51,63,.55); clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px);}
-  .brand-mark::after{content:''; position:absolute; left:5px; top:8px; width:14px; height:10px; background:rgba(11,8,9,.65);}
+  .brand-mark{background:#e1202e !important; display:flex; align-items:center; justify-content:center; font:800 17px 'Space Grotesk',sans-serif; color:#fff; border-bottom:3px solid #fff;}
+  .brand-mark::after{content:'B';}
   .brand-name{
     font-size:15px; font-weight:700; letter-spacing:.08em;
     background:linear-gradient(90deg, #e8333f, #c9ccd3 60%, #e8333f);
@@ -268,13 +271,14 @@
     aspect-ratio:1.586/1; border-radius:18px; position:relative; overflow:hidden;
     background:
       radial-gradient(circle at 85% -10%, rgba(255,255,255,.14), transparent 50%),
+      linear-gradient(180deg, transparent 0 80%, rgba(255,255,255,.9) 80% 82%, transparent 82%),
       linear-gradient(135deg, #d71920 0%, #a50f18 45%, #4a0a0f 100%);
     border:1px solid var(--line); padding:22px 24px; display:flex; flex-direction:column; justify-content:space-between;
     box-shadow:0 20px 50px -20px rgba(0,0,0,.7);
     perspective:900px; transition:transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s ease;
   }
   .card-visual:hover{transform:rotateX(3deg) rotateY(-4deg) translateY(-3px); box-shadow:0 30px 60px -18px rgba(0,0,0,.75);}
-  .card-visual::before{content:''; position:absolute; inset:0; background:repeating-linear-gradient(115deg, rgba(255,255,255,.02) 0 2px, transparent 2px 40px); pointer-events:none;}
+  .card-visual::before{content:''; position:absolute; inset:0; background:repeating-linear-gradient(115deg, rgba(255,255,255,.07) 0 2px, transparent 2px 22px); pointer-events:none;}
   /* Onda decorativa genérica, inspirada en el acabado de las tarjetas del banco — sin reproducir logos. */
   .card-visual::after{
     content:''; position:absolute; left:-10%; bottom:-30%; width:130%; height:70%; pointer-events:none;
@@ -491,15 +495,15 @@
   /* ── Barra XP: progreso del ciclo, estilo nivel de juego. Sin animación continua — solo transición al cambiar. ── */
   .xp-bar-wrap{margin-bottom:16px;}
   .xp-bar-head{display:flex; justify-content:space-between; margin-bottom:6px;}
-  .xp-bar-lbl{font-size:9.5px; font-weight:700; letter-spacing:.18em; color:#e3e4e8; text-shadow:0 0 8px rgba(199,125,255,.5);}
+  .xp-bar-lbl{font-size:9.5px; font-weight:700; letter-spacing:.18em; color:#e3e4e8; text-shadow:0 0 8px rgba(232,51,63,.5);}
   .xp-bar-val{font-size:11px; font-weight:700; color:var(--text); font-family:'JetBrains Mono',monospace;}
   .xp-bar-track{
     position:relative; height:14px; background:rgba(255,255,255,.04); border:1px solid rgba(176,18,28,.3);
     clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px); overflow:hidden;
   }
   .xp-bar-fill{
-    height:100%; background:linear-gradient(90deg, #8a1018, #e3e4e8, #e8333f);
-    box-shadow:0 0 10px rgba(199,125,255,.6); transition:width .7s cubic-bezier(.2,.8,.2,1);
+    height:100%; background:linear-gradient(90deg,#8a1018,#e1202e 60%,#ffffff);
+    box-shadow:0 0 10px rgba(232,51,63,.6); transition:width .7s cubic-bezier(.2,.8,.2,1);
     position:relative; overflow:hidden;
   }
   /* Textura "circuito" — estática, un solo patrón repetido, sin animación (cero costo). */
@@ -526,6 +530,7 @@
   @media(max-width:860px){ .kpi-row{grid-template-columns:1fr 1fr;} }
 
   .kpi{border-radius:var(--r-md); padding:18px 20px; position:relative; overflow:hidden;}
+  .kpi,.panel,.metric{clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));}
   .kpi::before{content:''; position:absolute; left:0; top:0; bottom:0; width:3px;}
   .kpi.k1::before{background:var(--brass);} .kpi.k2::before{background:var(--mint);}
   .kpi.k3::before{background:var(--amber);} .kpi.k4::before{background:var(--rose);}
@@ -952,9 +957,11 @@
       <div class="card-visual" id="card-visual">
         <div class="card-emblem" id="card-emblem" aria-hidden="true">
           <svg viewBox="0 0 150 150">
-            <circle class="ring" cx="75" cy="75" r="60"/>
-            <path class="spiral" d="M75 40 A35 35 0 1 1 40 75"/>
-            <circle class="spiral" cx="40" cy="75" r="6"/>
+            <path class="ring" d="M10 75 Q75 12 140 75 Q75 138 10 75 Z"/>
+            <circle class="ring" cx="75" cy="75" r="30"/>
+            <circle class="spiral" cx="75" cy="75" r="19" stroke-dasharray="6 5"/>
+            <circle class="spiral" cx="75" cy="75" r="7"/>
+            <path class="spiral" d="M75 38 L75 48 M75 102 L75 112 M38 75 L48 75 M102 75 L112 75" stroke-width="2"/>
             <path class="crack" d="M22 25 L58 58"/>
             <path class="crack" d="M58 58 L48 78 L70 88"/>
             <path class="crack" d="M70 88 L100 112"/>
@@ -2365,11 +2372,11 @@
     const usado = limite > 0 ? total / limite : 0;
 
     let letra, etiqueta;
-    if (usado <= 0.3) { letra = 'S'; etiqueta = 'impecable'; }
-    else if (usado <= 0.5) { letra = 'A'; etiqueta = 'muy bien'; }
-    else if (usado <= 0.7) { letra = 'B'; etiqueta = 'bien'; }
-    else if (usado <= 0.85) { letra = 'C'; etiqueta = 'atención'; }
-    else if (usado <= 1.0) { letra = 'D'; etiqueta = 'al límite'; }
+    if (usado <= 0.3) { letra = 'S'; etiqueta = 'cliente élite'; }
+    else if (usado <= 0.5) { letra = 'A'; etiqueta = 'platino'; }
+    else if (usado <= 0.7) { letra = 'B'; etiqueta = 'oro'; }
+    else if (usado <= 0.85) { letra = 'C'; etiqueta = 'alerta roja'; }
+    else if (usado <= 1.0) { letra = 'D'; etiqueta = 'límite'; }
     else { letra = 'E'; etiqueta = 'excedido'; }
 
     const badge = $('rank-badge');
